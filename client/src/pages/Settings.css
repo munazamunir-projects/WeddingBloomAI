@@ -1,0 +1,730 @@
+/* =========================================================
+   SETTINGS PAGE
+========================================================= */
+
+.settings-page {
+  min-height: 100%;
+  padding: 32px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.settings-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 24px;
+
+  margin-bottom: 28px;
+}
+
+.settings-eyebrow {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: var(--rose);
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1.8px;
+}
+
+.settings-header h1 {
+  margin: 0;
+
+  color: var(--wine);
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(29px, 3vw, 38px);
+
+  line-height: 1.15;
+}
+
+.settings-header p {
+  max-width: 600px;
+
+  margin: 8px 0 0;
+
+  color: var(--text-secondary);
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   SAVE BUTTON
+========================================================= */
+
+.settings-save-btn {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  min-height: 42px;
+
+  padding: 11px 18px;
+
+  border: none;
+
+  border-radius: 11px;
+
+  background: var(--rose);
+
+  color: white;
+
+  font-family: inherit;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.settings-save-btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow: var(--shadow-md);
+}
+
+.settings-save-btn:active {
+  transform: translateY(0);
+}
+
+.settings-save-btn:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+
+  transform: none;
+
+  box-shadow: none;
+}
+
+.settings-save-btn svg {
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   SETTINGS GRID
+========================================================= */
+
+.settings-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 20px;
+
+  align-items: start;
+}
+
+
+/* =========================================================
+   SETTINGS CARD
+========================================================= */
+
+.settings-card {
+  min-width: 0;
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  border-radius: 19px;
+
+  padding: 24px;
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.settings-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.settings-card-header {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  margin-bottom: 20px;
+}
+
+.settings-card-icon {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f5dfe2,
+      #f8ece3
+    );
+
+  color: var(--rose);
+
+  font-size: 15px;
+}
+
+.settings-card-header h2 {
+  margin: 0;
+
+  color: var(--wine);
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 18px;
+
+  line-height: 1.2;
+}
+
+.settings-card-header p {
+  margin: 5px 0 0;
+
+  color: var(--text-secondary);
+
+  font-size: 11px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   SETTINGS OPTIONS
+========================================================= */
+
+.settings-option {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  min-height: 64px;
+
+  padding: 15px 0;
+
+  border-top: 1px solid var(--border);
+}
+
+.settings-option:first-of-type {
+  border-top: none;
+
+  padding-top: 4px;
+}
+
+.settings-option:last-of-type {
+  padding-bottom: 4px;
+}
+
+.settings-option > div:first-child {
+  min-width: 0;
+}
+
+.settings-option strong {
+  display: block;
+
+  color: var(--wine);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  line-height: 1.4;
+}
+
+.settings-option span {
+  display: block;
+
+  margin-top: 4px;
+
+  color: var(--text-secondary);
+
+  font-size: 10px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   TOGGLE
+========================================================= */
+
+.settings-toggle {
+  position: relative;
+
+  width: 44px;
+  height: 24px;
+
+  flex: 0 0 44px;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: 50px;
+
+  background: #ddd0d2;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.settings-toggle:hover {
+  box-shadow:
+    0 0 0 3px rgba(179, 91, 108, 0.08);
+}
+
+.settings-toggle:focus-visible {
+  outline: none;
+
+  box-shadow:
+    0 0 0 3px rgba(179, 91, 108, 0.18);
+}
+
+.settings-toggle span {
+  position: absolute;
+
+  top: 3px;
+  left: 3px;
+
+  width: 18px;
+  height: 18px;
+
+  margin: 0;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.15);
+
+  transition:
+    transform 0.25s ease;
+}
+
+.settings-toggle.active {
+  background: var(--rose);
+
+  box-shadow:
+    0 2px 7px rgba(179, 91, 108, 0.22);
+}
+
+.settings-toggle.active span {
+  transform: translateX(20px);
+}
+
+
+/* =========================================================
+   SECURITY SECTION
+========================================================= */
+
+.settings-security-row {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 12px;
+
+  padding-top: 16px;
+
+  border-top: 1px solid var(--border);
+}
+
+.settings-security-icon {
+  width: 35px;
+  height: 35px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 35px;
+
+  border-radius: 10px;
+
+  background: var(--rose-light);
+
+  color: var(--rose-dark);
+
+  font-size: 12px;
+}
+
+.settings-security-row > div:last-child {
+  min-width: 0;
+}
+
+.settings-security-row strong {
+  display: block;
+
+  color: var(--wine);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  line-height: 1.4;
+}
+
+.settings-security-row span {
+  display: block;
+
+  margin-top: 5px;
+
+  color: var(--text-secondary);
+
+  font-size: 10px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   ACCOUNT SECTION
+========================================================= */
+
+.settings-account-note {
+  padding: 16px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 12px;
+
+  background: var(--ivory);
+}
+
+.settings-account-note strong {
+  display: block;
+
+  color: var(--wine);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  line-height: 1.4;
+}
+
+.settings-account-note p {
+  margin: 6px 0 0;
+
+  color: var(--text-secondary);
+
+  font-size: 10px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   LOADING STATE
+   Use these classes if JSX has loading state
+========================================================= */
+
+.settings-loading {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 250px;
+
+  color: var(--text-secondary);
+
+  font-size: 13px;
+}
+
+.settings-loading-spinner {
+  width: 20px;
+  height: 20px;
+
+  margin-right: 9px;
+
+  border: 2px solid var(--border);
+
+  border-top-color: var(--rose);
+
+  border-radius: 50%;
+
+  animation: settingsSpin 0.8s linear infinite;
+}
+
+@keyframes settingsSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   ERROR MESSAGE
+========================================================= */
+
+.settings-error {
+  margin-bottom: 20px;
+
+  padding: 12px 15px;
+
+  border: 1px solid rgba(179, 91, 108, 0.25);
+
+  border-radius: 11px;
+
+  background: #fff5f5;
+
+  color: var(--rose-dark);
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   SUCCESS MESSAGE
+========================================================= */
+
+.settings-success {
+  margin-bottom: 20px;
+
+  padding: 12px 15px;
+
+  border: 1px solid rgba(85, 130, 95, 0.2);
+
+  border-radius: 11px;
+
+  background: #f4faf5;
+
+  color: #527a5b;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .settings-page {
+    padding: 28px 22px;
+  }
+
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .settings-page {
+    padding: 24px 18px;
+  }
+
+  .settings-header {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 18px;
+  }
+
+  .settings-header h1 {
+    font-size: 30px;
+  }
+
+  .settings-header p {
+    font-size: 13px;
+  }
+
+  .settings-save-btn {
+    width: 100%;
+  }
+
+  .settings-grid {
+    gap: 16px;
+  }
+
+  .settings-card {
+    padding: 21px 18px;
+
+    border-radius: 17px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .settings-page {
+    padding: 20px 14px;
+  }
+
+  .settings-header {
+    margin-bottom: 20px;
+  }
+
+  .settings-header h1 {
+    font-size: 27px;
+  }
+
+  .settings-header p {
+    font-size: 12px;
+  }
+
+  .settings-card {
+    padding: 19px 16px;
+  }
+
+  .settings-card-header {
+    gap: 10px;
+
+    margin-bottom: 17px;
+  }
+
+  .settings-card-icon {
+    width: 39px;
+    height: 39px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+  }
+
+  .settings-card-header h2 {
+    font-size: 17px;
+  }
+
+  .settings-card-header p {
+    font-size: 10px;
+  }
+
+  .settings-option {
+    gap: 12px;
+
+    padding: 14px 0;
+  }
+
+  .settings-option strong {
+    font-size: 11px;
+  }
+
+  .settings-option span {
+    max-width: 230px;
+
+    font-size: 9px;
+  }
+
+  .settings-security-row {
+    gap: 10px;
+  }
+
+  .settings-security-row strong {
+    font-size: 11px;
+  }
+
+  .settings-security-row span {
+    font-size: 9px;
+  }
+
+  .settings-account-note {
+    padding: 14px;
+  }
+
+  .settings-account-note strong {
+    font-size: 11px;
+  }
+
+  .settings-account-note p {
+    font-size: 9px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .settings-page {
+    padding: 18px 11px;
+  }
+
+  .settings-card {
+    padding: 17px 14px;
+  }
+
+  .settings-option {
+    align-items: flex-start;
+  }
+
+  .settings-toggle {
+    margin-top: 2px;
+  }
+
+  .settings-option span {
+    max-width: 190px;
+  }
+
+}

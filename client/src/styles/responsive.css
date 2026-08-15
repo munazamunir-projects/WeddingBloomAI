@@ -1,0 +1,67 @@
+/* =========================================
+   WEDDING BLOOM — RESPONSIVE STYLES
+========================================= */
+
+/* =========================================
+   LARGE TABLETS
+========================================= */
+
+@media (max-width: 1100px) {
+  .page-inner {
+    padding: 28px;
+  }
+}
+
+/* =========================================
+   TABLETS
+========================================= */
+
+@media (max-width: 900px) {
+  .page-inner {
+    padding: 24px;
+  }
+
+  .page-title {
+    font-size: 27px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .page-inner {
+    padding: 20px 16px;
+  }
+
+  .page-title {
+    font-size: 25px;
+  }
+
+  .page-subtitle {
+    font-size: 14px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .page-inner {
+    padding: 16px 12px;
+  }
+
+  .page-title {
+    font-size: 22px;
+  }
+
+  .page-subtitle {
+    font-size: 13px;
+  }
+
+  .card {
+    border-radius: var(--radius-md);
+  }
+}

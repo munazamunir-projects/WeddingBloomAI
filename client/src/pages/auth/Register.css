@@ -1,0 +1,470 @@
+.register-page {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  background:
+    radial-gradient(
+      circle at bottom right,
+      #fff1f2,
+      transparent 35%
+    ),
+    var(--ivory);
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.register-container {
+  width: min(1000px, 100%);
+
+  min-height: 650px;
+
+  display: grid;
+
+  grid-template-columns:
+    0.95fr
+    1.05fr;
+
+  overflow: hidden;
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  border-radius: 28px;
+
+  box-shadow: var(--shadow-lg);
+}
+
+
+/* =========================
+   BRAND PANEL
+========================= */
+
+.register-brand-panel {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding: 55px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f5dfe2,
+      #faeee5
+    );
+}
+
+.register-brand-panel::before {
+  content: "";
+
+  position: absolute;
+
+  width: 280px;
+  height: 280px;
+
+  right: -120px;
+  top: -110px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.register-brand-panel::after {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  left: -100px;
+  bottom: -90px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.register-brand-logo {
+  position: relative;
+
+  z-index: 1;
+
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 24px;
+
+  border-radius: 18px;
+
+  background: var(--rose);
+
+  color: white;
+
+  font-size: 27px;
+
+  box-shadow: var(--shadow-md);
+}
+
+.register-brand-eyebrow {
+  position: relative;
+
+  z-index: 1;
+
+  color: var(--rose-dark);
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+.register-brand-panel h1 {
+  position: relative;
+
+  z-index: 1;
+
+  margin-top: 12px;
+
+  color: var(--wine);
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(34px, 4vw, 48px);
+
+  line-height: 1.08;
+}
+
+.register-brand-panel p {
+  position: relative;
+
+  z-index: 1;
+
+  max-width: 380px;
+
+  margin-top: 18px;
+
+  color: var(--text-secondary);
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+.register-brand-heart {
+  position: relative;
+
+  z-index: 1;
+
+  margin-top: 35px;
+
+  color: var(--rose);
+
+  font-size: 30px;
+}
+
+
+/* =========================
+   FORM PANEL
+========================= */
+
+.register-form-panel {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding: 48px 55px;
+}
+
+.register-form-header h2 {
+  margin: 0;
+
+  color: var(--wine);
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 30px;
+}
+
+.register-form-header p {
+  margin-top: 8px;
+
+  color: var(--text-secondary);
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+.register-mobile-logo {
+  display: none;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 15px;
+
+  margin-top: 27px;
+}
+
+.register-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-field label {
+  margin-bottom: 7px;
+
+  color: var(--wine);
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+.register-input {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 11px 13px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 10px;
+
+  background: var(--ivory);
+
+  transition: 0.2s ease;
+}
+
+.register-input:focus-within {
+  border-color: var(--rose);
+
+  box-shadow:
+    0 0 0 3px rgba(179, 91, 108, 0.08);
+}
+
+.register-input > svg {
+  flex-shrink: 0;
+
+  color: var(--text-muted);
+
+  font-size: 12px;
+}
+
+.register-input input {
+  width: 100%;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: var(--text-primary);
+
+  font-family: inherit;
+
+  font-size: 12px;
+}
+
+.register-input input::placeholder {
+  color: var(--text-muted);
+}
+
+.register-password-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--text-muted);
+
+  cursor: pointer;
+
+  font-size: 12px;
+}
+
+.register-password-toggle:hover {
+  color: var(--rose-dark);
+}
+
+
+/* =========================
+   SUBMIT
+========================= */
+
+.register-submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  margin-top: 5px;
+
+  padding: 13px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: var(--rose);
+
+  color: white;
+
+  font-family: inherit;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow: var(--shadow-sm);
+
+  transition: 0.2s ease;
+}
+
+.register-submit-btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow: var(--shadow-md);
+
+  background: var(--rose-dark);
+}
+
+
+/* =========================
+   LOGIN LINK
+========================= */
+
+.register-switch {
+  display: flex;
+  justify-content: center;
+
+  gap: 5px;
+
+  margin-top: 20px;
+
+  font-size: 11px;
+}
+
+.register-switch span {
+  color: var(--text-secondary);
+}
+
+.register-switch a {
+  color: var(--rose-dark);
+
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.register-switch a:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+
+  .register-page {
+    padding: 20px;
+  }
+
+  .register-container {
+    grid-template-columns: 1fr;
+
+    min-height: auto;
+  }
+
+  .register-brand-panel {
+    display: none;
+  }
+
+  .register-form-panel {
+    padding: 45px 35px;
+  }
+
+  .register-mobile-logo {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    border-radius: 15px;
+
+    background: var(--rose);
+
+    color: white;
+
+    font-size: 22px;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .register-page {
+    padding: 12px;
+  }
+
+  .register-container {
+    border-radius: 20px;
+  }
+
+  .register-form-panel {
+    padding: 35px 22px;
+  }
+
+  .register-form-header h2 {
+    font-size: 26px;
+  }
+
+}

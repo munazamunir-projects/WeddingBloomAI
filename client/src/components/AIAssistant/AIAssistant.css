@@ -1,0 +1,907 @@
+
+/* =========================================================
+   WEDDING BLOOM AI ASSISTANT
+========================================================= */
+
+
+/* =========================================================
+   FLOATING BUTTON
+========================================================= */
+
+.ai-floating-button {
+  position: fixed;
+
+  right: 25px;
+  bottom: 25px;
+
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--rose),
+      var(--rose-dark)
+    );
+
+  color: white;
+
+  font-size: 21px;
+
+  cursor: pointer;
+
+  z-index: 2000;
+
+  box-shadow:
+    0 8px 25px rgba(179, 91, 108, 0.28);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.ai-floating-button:hover {
+  transform: translateY(-4px) scale(1.04);
+
+  box-shadow:
+    0 12px 30px rgba(179, 91, 108, 0.35);
+}
+
+.ai-floating-button:active {
+  transform: scale(0.96);
+}
+
+
+/* =========================================================
+   FLOATING HEART
+========================================================= */
+
+.ai-floating-heart {
+  position: absolute;
+
+  right: -2px;
+  top: -2px;
+
+  width: 19px;
+  height: 19px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid white;
+
+  border-radius: 50%;
+
+  background: #e9b7bf;
+
+  color: white;
+
+  font-size: 7px;
+}
+
+
+/* =========================================================
+   CHAT WINDOW
+========================================================= */
+
+.ai-assistant {
+  position: fixed;
+
+  right: 25px;
+  bottom: 25px;
+
+  width: 390px;
+  max-width: calc(100vw - 30px);
+
+  height: 560px;
+  max-height: calc(100vh - 50px);
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  border-radius: 22px;
+
+  z-index: 2000;
+
+  box-shadow:
+    0 20px 55px rgba(65, 40, 45, 0.18);
+
+  animation: aiOpen 0.25s ease;
+}
+
+@keyframes aiOpen {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(15px)
+      scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.ai-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  padding: 17px 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff5f4,
+      #fffaf4
+    );
+
+  border-bottom: 1px solid var(--border);
+}
+
+.ai-header-info {
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  min-width: 0;
+}
+
+.ai-avatar {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--rose),
+      var(--champagne)
+    );
+
+  color: white;
+
+  font-size: 16px;
+
+  box-shadow: var(--shadow-sm);
+}
+
+.ai-header-info h3 {
+  margin: 0;
+
+  color: var(--wine);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 15px;
+}
+
+.ai-header-info span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: var(--text-muted);
+
+  font-size: 9px;
+}
+
+.ai-close-button {
+  width: 31px;
+  height: 31px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: transparent;
+
+  color: var(--text-muted);
+
+  font-size: 12px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.ai-close-button:hover {
+  background: var(--rose-light);
+
+  color: var(--rose-dark);
+}
+
+
+/* =========================================================
+   MESSAGES AREA
+========================================================= */
+
+.ai-messages {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 15px;
+
+  padding: 20px 16px;
+
+  overflow-y: auto;
+
+  background: var(--ivory);
+
+  scrollbar-width: thin;
+
+  scrollbar-color:
+    rgba(179, 91, 108, 0.35)
+    transparent;
+}
+
+.ai-messages::-webkit-scrollbar {
+  width: 5px;
+}
+
+.ai-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.ai-messages::-webkit-scrollbar-thumb {
+  background: rgba(179, 91, 108, 0.3);
+
+  border-radius: 10px;
+}
+
+
+/* =========================================================
+   MESSAGE ROW
+========================================================= */
+
+.ai-message-row {
+  display: flex;
+
+  align-items: flex-end;
+
+  gap: 8px;
+
+  max-width: 94%;
+
+  min-width: 0;
+}
+
+.assistant-message {
+  align-self: flex-start;
+}
+
+.user-message {
+  align-self: flex-end;
+}
+
+
+/* =========================================================
+   SMALL AI AVATAR
+========================================================= */
+
+.ai-small-avatar {
+  width: 25px;
+  height: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 8px;
+
+  background: var(--rose-light);
+
+  color: var(--rose);
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   MESSAGE BUBBLE
+========================================================= */
+
+.ai-message-bubble {
+  min-width: 0;
+
+  padding: 11px 14px;
+
+  border-radius: 14px;
+
+  font-size: 11px;
+
+  line-height: 1.6;
+
+  word-break: break-word;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   AI BUBBLE
+========================================================= */
+
+.assistant-message .ai-message-bubble {
+  max-width: 100%;
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  color: var(--text-primary);
+
+  border-bottom-left-radius: 4px;
+
+  box-shadow: var(--shadow-sm);
+}
+
+
+/* =========================================================
+   USER BUBBLE
+========================================================= */
+
+.user-message .ai-message-bubble {
+  max-width: 100%;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--rose),
+      var(--rose-dark)
+    );
+
+  color: white;
+
+  border-bottom-right-radius: 4px;
+
+  box-shadow:
+    0 4px 12px rgba(179, 91, 108, 0.15);
+}
+
+
+/* =========================================================
+   MARKDOWN — GENERAL
+========================================================= */
+
+.ai-message-bubble p {
+  margin: 0;
+}
+
+.ai-message-bubble p + p {
+  margin-top: 10px;
+}
+
+
+/* =========================================================
+   MARKDOWN — HEADINGS
+========================================================= */
+
+.ai-message-bubble h1,
+.ai-message-bubble h2,
+.ai-message-bubble h3,
+.ai-message-bubble h4 {
+  margin: 0 0 8px;
+
+  color: var(--wine);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  line-height: 1.3;
+}
+
+.ai-message-bubble h1 {
+  font-size: 17px;
+}
+
+.ai-message-bubble h2 {
+  font-size: 15px;
+}
+
+.ai-message-bubble h3 {
+  font-size: 13px;
+}
+
+.ai-message-bubble h4 {
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   MARKDOWN — BOLD
+========================================================= */
+
+.ai-message-bubble strong {
+  color: var(--rose-dark);
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   USER MESSAGE TEXT
+========================================================= */
+
+.user-message .ai-message-bubble strong {
+  color: white;
+}
+
+
+/* =========================================================
+   MARKDOWN — LISTS
+========================================================= */
+
+.ai-message-bubble ul,
+.ai-message-bubble ol {
+  margin: 8px 0;
+
+  padding-left: 20px;
+}
+
+.ai-message-bubble li {
+  margin: 4px 0;
+
+  padding-left: 2px;
+
+  line-height: 1.55;
+}
+
+.ai-message-bubble ul li::marker {
+  color: var(--rose);
+}
+
+.ai-message-bubble ol li::marker {
+  color: var(--rose);
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   MARKDOWN — LINKS
+========================================================= */
+
+.ai-message-bubble a {
+  color: var(--rose-dark);
+
+  font-weight: 700;
+
+  text-decoration: underline;
+
+  text-decoration-thickness: 1px;
+}
+
+.ai-message-bubble a:hover {
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   MARKDOWN — TABLE
+========================================================= */
+
+.ai-message-bubble table {
+  width: 100%;
+
+  margin: 12px 0;
+
+  border-collapse: separate;
+
+  border-spacing: 0;
+
+  overflow: hidden;
+
+  border: 1px solid var(--border);
+
+  border-radius: 10px;
+
+  background: var(--white);
+
+  font-size: 9px;
+
+  line-height: 1.45;
+}
+
+
+/* Table header */
+
+.ai-message-bubble thead {
+  background:
+    linear-gradient(
+      135deg,
+      #f8e7e9,
+      #f9eee7
+    );
+}
+
+.ai-message-bubble th {
+  padding: 8px 7px;
+
+  color: var(--wine);
+
+  font-weight: 800;
+
+  text-align: left;
+
+  border-bottom: 1px solid var(--border);
+}
+
+
+/* Table cells */
+
+.ai-message-bubble td {
+  padding: 7px;
+
+  color: var(--text-primary);
+
+  vertical-align: top;
+
+  border-bottom: 1px solid var(--border);
+}
+
+
+/* Remove last border */
+
+.ai-message-bubble tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* Table hover */
+
+.ai-message-bubble tbody tr:hover {
+  background: var(--rose-light);
+}
+
+
+/* =========================================================
+   MARKDOWN — BLOCKQUOTE
+========================================================= */
+
+.ai-message-bubble blockquote {
+  margin: 10px 0;
+
+  padding: 9px 12px;
+
+  border-left: 3px solid var(--rose);
+
+  background: var(--rose-light);
+
+  color: var(--text-secondary);
+
+  border-radius: 0 8px 8px 0;
+}
+
+
+/* =========================================================
+   MARKDOWN — CODE
+========================================================= */
+
+.ai-message-bubble code {
+  padding: 2px 5px;
+
+  border-radius: 5px;
+
+  background: #f5e9e7;
+
+  color: var(--rose-dark);
+
+  font-family: Consolas, monospace;
+
+  font-size: 9px;
+}
+
+.ai-message-bubble pre {
+  margin: 10px 0;
+
+  padding: 11px;
+
+  overflow-x: auto;
+
+  border-radius: 9px;
+
+  background: #33272a;
+
+  color: #fff;
+
+  font-size: 9px;
+
+  line-height: 1.5;
+}
+
+.ai-message-bubble pre code {
+  padding: 0;
+
+  background: transparent;
+
+  color: inherit;
+}
+
+
+/* =========================================================
+   HORIZONTAL RULE
+========================================================= */
+
+.ai-message-bubble hr {
+  margin: 12px 0;
+
+  border: none;
+
+  border-top: 1px solid var(--border);
+}
+
+
+/* =========================================================
+   INPUT AREA
+========================================================= */
+
+.ai-input-area {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 12px;
+
+  background: var(--white);
+
+  border-top: 1px solid var(--border);
+}
+
+.ai-input-area input {
+  flex: 1;
+
+  min-width: 0;
+
+  height: 40px;
+
+  padding: 0 13px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 10px;
+
+  outline: none;
+
+  background: var(--ivory);
+
+  color: var(--text-primary);
+
+  font-family: inherit;
+
+  font-size: 11px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.ai-input-area input::placeholder {
+  color: var(--text-muted);
+}
+
+.ai-input-area input:focus {
+  background: var(--white);
+
+  border-color: var(--rose);
+
+  box-shadow:
+    0 0 0 3px rgba(179, 91, 108, 0.07);
+}
+
+
+/* =========================================================
+   SEND BUTTON
+========================================================= */
+
+.ai-input-area button {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: var(--rose);
+
+  color: white;
+
+  font-size: 12px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.ai-input-area button:hover:not(:disabled) {
+  background: var(--rose-dark);
+
+  transform: translateY(-1px);
+}
+
+.ai-input-area button:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.ai-input-area button:disabled {
+  opacity: 0.4;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .ai-floating-button {
+    right: 18px;
+    bottom: 18px;
+
+    width: 54px;
+    height: 54px;
+
+    font-size: 19px;
+  }
+
+  .ai-assistant {
+    right: 15px;
+    bottom: 15px;
+
+    width: calc(100vw - 30px);
+
+    height: min(
+      560px,
+      calc(100vh - 30px)
+    );
+
+    border-radius: 19px;
+  }
+
+  .ai-message-row {
+    max-width: 96%;
+  }
+
+  .ai-message-bubble {
+    font-size: 11px;
+
+    padding: 10px 12px;
+  }
+
+  .ai-message-bubble table {
+    font-size: 8px;
+  }
+
+  .ai-message-bubble th,
+  .ai-message-bubble td {
+    padding: 6px 5px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .ai-assistant {
+    right: 10px;
+    bottom: 10px;
+
+    width: calc(100vw - 20px);
+
+    height: calc(100vh - 20px);
+  }
+
+  .ai-header {
+    padding: 14px;
+  }
+
+  .ai-avatar {
+    width: 38px;
+    height: 38px;
+
+    font-size: 14px;
+  }
+
+  .ai-header-info h3 {
+    font-size: 14px;
+  }
+
+  .ai-header-info span {
+    font-size: 8px;
+  }
+
+  .ai-messages {
+    padding: 16px 12px;
+
+    gap: 12px;
+  }
+
+  .ai-message-bubble {
+    font-size: 10px;
+
+    padding: 9px 11px;
+  }
+
+  .ai-input-area {
+    padding: 9px;
+  }
+
+  .ai-input-area input {
+    height: 38px;
+
+    font-size: 10px;
+  }
+
+  .ai-input-area button {
+    width: 38px;
+    height: 38px;
+  }
+}

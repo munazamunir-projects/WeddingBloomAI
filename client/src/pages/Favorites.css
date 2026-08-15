@@ -1,0 +1,452 @@
+.favorites-page {
+  min-height: 100%;
+  padding: 32px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.favorites-header {
+  margin-bottom: 26px;
+}
+
+.favorites-eyebrow {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: var(--rose);
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1.8px;
+}
+
+.favorites-header h1 {
+  margin: 0;
+
+  color: var(--wine);
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(29px, 3vw, 38px);
+}
+
+.favorites-header p {
+  margin-top: 8px;
+
+  color: var(--text-secondary);
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+
+/* =========================
+   TOOLBAR
+========================= */
+
+.favorites-toolbar {
+  display: flex;
+
+  align-items: center;
+
+  margin-bottom: 20px;
+}
+
+.favorites-search {
+  width: min(420px, 100%);
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 11px 14px;
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  border-radius: 11px;
+
+  box-shadow: var(--shadow-sm);
+}
+
+.favorites-search svg {
+  color: var(--text-muted);
+
+  font-size: 13px;
+}
+
+.favorites-search input {
+  width: 100%;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: var(--text-primary);
+
+  font-family: inherit;
+
+  font-size: 12px;
+}
+
+.favorites-search input::placeholder {
+  color: var(--text-muted);
+}
+
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.favorites-empty-card {
+  min-height: 410px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 45px 25px;
+
+  text-align: center;
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  border-radius: 21px;
+
+  box-shadow: var(--shadow-sm);
+}
+
+.favorites-empty-icon {
+  width: 70px;
+  height: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 18px;
+
+  border-radius: 21px;
+
+  background: linear-gradient(
+    135deg,
+    #f5dfe2,
+    #f8ece3
+  );
+
+  color: var(--rose);
+
+  font-size: 25px;
+}
+
+.favorites-empty-card h2 {
+  margin: 0;
+
+  color: var(--wine);
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 23px;
+}
+
+.favorites-empty-card p {
+  max-width: 480px;
+
+  margin-top: 8px;
+
+  color: var(--text-secondary);
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+.favorites-empty-hint {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-top: 20px;
+
+  padding: 11px 15px;
+
+  border-radius: 10px;
+
+  background: var(--rose-light);
+
+  color: var(--rose-dark);
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.favorites-empty-hint svg {
+  font-size: 12px;
+}
+
+
+/* =========================
+   LOADING SPINNER
+========================= */
+
+.favorites-spinner {
+  animation: favoritesSpin 1s linear infinite;
+}
+
+@keyframes favoritesSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================
+   FAVORITES LIST
+========================= */
+
+.favorites-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(320px, 1fr));
+
+  gap: 18px;
+}
+
+
+/* =========================
+   FAVORITE CARD
+========================= */
+
+.favorite-card {
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+  padding: 20px;
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  border-radius: 18px;
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.favorite-card:hover {
+  transform: translateY(-2px);
+
+  box-shadow: var(--shadow-md);
+}
+
+
+/* =========================
+   CARD ICON
+========================= */
+
+.favorite-card-icon {
+  width: 54px;
+  height: 54px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+
+  background: linear-gradient(
+    135deg,
+    #f5dfe2,
+    #f8ece3
+  );
+
+  color: var(--rose);
+
+  font-size: 19px;
+}
+
+
+/* =========================
+   CARD DETAILS
+========================= */
+
+.favorite-card-details {
+  flex: 1;
+
+  min-width: 0;
+}
+
+.favorite-card-label {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: var(--rose);
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.3px;
+}
+
+.favorite-card-details h2 {
+  margin: 0;
+
+  color: var(--wine);
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 18px;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+.favorite-card-details p {
+  margin-top: 5px;
+
+  color: var(--text-secondary);
+
+  font-size: 12px;
+}
+
+
+/* =========================
+   REMOVE BUTTON
+========================= */
+
+.favorite-remove-btn {
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 9px 12px;
+
+  border: 1px solid #ead0d5;
+
+  border-radius: 9px;
+
+  background: #fff7f8;
+
+  color: #a64d60;
+
+  font-family: inherit;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.favorite-remove-btn:hover {
+  background: #f5dfe2;
+
+  border-color: #d99aa5;
+
+  color: #8f3f50;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+  .favorites-page {
+    padding: 24px 18px;
+  }
+
+  .favorites-search {
+    width: 100%;
+  }
+
+  .favorites-list {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .favorites-page {
+    padding: 20px 14px;
+  }
+
+  .favorites-empty-card {
+    min-height: 350px;
+
+    padding: 35px 18px;
+  }
+
+  .favorites-empty-card h2 {
+    font-size: 20px;
+  }
+
+  .favorites-empty-card p {
+    font-size: 12px;
+  }
+
+  .favorites-empty-hint {
+    text-align: left;
+  }
+
+  .favorite-card {
+    align-items: flex-start;
+
+    flex-wrap: wrap;
+
+    padding: 16px;
+  }
+
+  .favorite-card-details {
+    width: calc(100% - 70px);
+  }
+
+  .favorite-remove-btn {
+    width: 100%;
+
+    justify-content: center;
+
+    margin-top: 4px;
+  }
+
+}

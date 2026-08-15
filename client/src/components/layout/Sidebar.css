@@ -1,0 +1,535 @@
+/* =========================================
+   WEDDING BLOOM — SIDEBAR
+========================================= */
+
+.sidebar {
+  position: fixed;
+
+  left: 0;
+  top: 0;
+
+  width: var(--sidebar-width);
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 24px 16px;
+
+  background: var(--bg-card);
+
+  border-right: 1px solid var(--border);
+
+  z-index: 1000;
+
+  overflow-y: auto;
+
+  scrollbar-width: thin;
+
+  transition:
+    background-color var(--transition-normal),
+    border-color var(--transition-normal),
+    color var(--transition-normal),
+    transform 0.3s ease,
+    box-shadow var(--transition-normal);
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 8px 10px 28px;
+}
+
+
+/* =========================================
+   FLOWER LOGO
+========================================= */
+
+.logo-flower {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 14px;
+
+  background: linear-gradient(
+    135deg,
+    var(--rose),
+    var(--rose-light)
+  );
+
+  color: #ffffff;
+
+  font-size: 23px;
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    background var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+
+/* =========================================
+   BRAND
+========================================= */
+
+.sidebar-brand h2 {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 19px;
+
+  transition: color var(--transition-normal);
+}
+
+.sidebar-brand span {
+  display: block;
+
+  margin-top: 2px;
+
+  color: var(--text-secondary);
+
+  font-size: 10px;
+
+  transition: color var(--transition-normal);
+}
+
+
+/* =========================================
+   MENU
+========================================= */
+
+.sidebar-menu {
+  flex: 1;
+}
+
+.menu-section {
+  margin-bottom: 23px;
+}
+
+.menu-section-title {
+  margin: 0 0 8px;
+
+  padding: 0 12px;
+
+  color: var(--text-muted);
+
+  text-transform: uppercase;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.3px;
+
+  transition: color var(--transition-normal);
+}
+
+
+/* =========================================
+   SIDEBAR LINKS
+========================================= */
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 10px 13px;
+
+  margin: 3px 0;
+
+  border-radius: 11px;
+
+  color: var(--text-secondary);
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  font-weight: 500;
+
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+
+/* =========================================
+   LINK HOVER
+========================================= */
+
+.sidebar-link:hover {
+  background: var(--blush);
+
+  color: var(--rose-dark);
+
+  transform: translateX(2px);
+}
+
+
+/* =========================================
+   ACTIVE LINK
+========================================= */
+
+.sidebar-link.active {
+  background: var(--blush);
+
+  color: var(--rose-dark);
+
+  font-weight: 700;
+
+  box-shadow:
+    inset 3px 0 0 var(--rose);
+
+  transition:
+    background var(--transition-normal),
+    color var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+
+/* =========================================
+   SIDEBAR ICON
+========================================= */
+
+.sidebar-icon {
+  width: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  color: inherit;
+
+  font-size: 14px;
+}
+
+.sidebar-link-text {
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   SIDEBAR BOTTOM
+========================================= */
+
+.sidebar-bottom {
+  margin-top: auto;
+
+  padding-top: 18px;
+
+  border-top: 1px solid var(--border);
+
+  transition: border-color var(--transition-normal);
+}
+
+
+/* =========================================
+   LOVE MESSAGE
+========================================= */
+
+.sidebar-love {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 13px;
+
+  background: var(--bg-secondary);
+
+  border: 1px solid var(--border);
+
+  border-radius: 13px;
+
+  transition:
+    background-color var(--transition-normal),
+    border-color var(--transition-normal);
+}
+
+
+/* =========================================
+   LOVE ICON
+========================================= */
+
+.sidebar-love > span {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 9px;
+
+  background: var(--blush);
+
+  color: var(--rose);
+
+  font-size: 13px;
+
+  transition:
+    background var(--transition-normal),
+    color var(--transition-normal);
+}
+
+
+/* =========================================
+   LOVE TEXT
+========================================= */
+
+.sidebar-love strong {
+  display: block;
+
+  color: var(--text-primary);
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  transition: color var(--transition-normal);
+}
+
+.sidebar-love small {
+  display: block;
+
+  margin-top: 3px;
+
+  color: var(--text-muted);
+
+  font-size: 8px;
+
+  line-height: 1.4;
+
+  transition: color var(--transition-normal);
+}
+
+
+/* =========================================
+   LOGOUT BUTTON
+========================================= */
+
+.sidebar-logout {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 10px;
+
+  padding: 11px 13px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 11px;
+
+  background: var(--bg-secondary);
+
+  color: var(--rose-dark);
+
+  font-family: inherit;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+
+/* =========================================
+   LOGOUT ICON
+========================================= */
+
+.sidebar-logout svg {
+  flex-shrink: 0;
+
+  font-size: 13px;
+}
+
+
+/* =========================================
+   LOGOUT HOVER
+========================================= */
+
+.sidebar-logout:hover {
+  background: var(--blush);
+
+  border-color: var(--rose-light);
+
+  color: var(--rose-dark);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================
+   LOGOUT ACTIVE
+========================================= */
+
+.sidebar-logout:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================
+   OVERLAY
+========================================= */
+
+.sidebar-overlay {
+  display: none;
+}
+
+
+/* =========================================
+   MOBILE SIDEBAR
+========================================= */
+
+@media (max-width: 900px) {
+
+  .sidebar {
+    transform: translateX(-100%);
+
+    box-shadow: var(--shadow-lg);
+
+    transition:
+      transform 0.3s ease,
+      background-color var(--transition-normal),
+      border-color var(--transition-normal);
+  }
+
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+
+  .sidebar-overlay {
+    display: block;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(50, 30, 35, 0.35);
+
+    z-index: 999;
+
+    backdrop-filter: blur(2px);
+  }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+  .sidebar {
+    width: min(
+      var(--sidebar-width),
+      86vw
+    );
+
+    padding: 20px 14px;
+  }
+
+
+  .sidebar-logo {
+    padding-bottom: 22px;
+  }
+
+
+  .sidebar-brand h2 {
+    font-size: 18px;
+  }
+
+
+  .sidebar-link {
+    padding: 10px 12px;
+
+    font-size: 12px;
+  }
+
+}
+
+
+/* =========================================
+   DARK MODE — OVERLAY
+========================================= */
+
+body.dark .sidebar-overlay {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+
+/* =========================================
+   DARK MODE — ACTIVE LINK
+========================================= */
+
+body.dark .sidebar-link.active {
+  background: var(--blush);
+
+  color: var(--rose-light);
+}
+
+
+/* =========================================
+   DARK MODE — HOVER
+========================================= */
+
+body.dark .sidebar-link:hover {
+  background: var(--blush);
+
+  color: var(--rose-light);
+}
+
+
+/* =========================================
+   DARK MODE — LOGOUT
+========================================= */
+
+body.dark .sidebar-logout:hover {
+  background: var(--blush);
+
+  border-color: var(--rose);
+
+  color: var(--rose-light);
+}
