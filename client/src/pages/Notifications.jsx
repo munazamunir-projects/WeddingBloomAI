@@ -20,7 +20,7 @@ function Notifications() {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
 
-  const API_URL = "http://localhost:5000/api/notifications";
+  const API_URL = "http://https://weddingbloomai-production.up.railway.app/api/notifications";
 
   /* =========================
      FETCH NOTIFICATIONS

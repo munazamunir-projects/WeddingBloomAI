@@ -120,7 +120,7 @@ function Vendors() {
       setLoading(true);
 
       const response = await fetch(
-        "http://localhost:5000/api/vendors",
+        "http://https://weddingbloomai-production.up.railway.app/api/vendors",
         {
           method: "GET",
 
@@ -156,7 +156,7 @@ function Vendors() {
 
               const categoryResponse =
                 await fetch(
-                  `http://localhost:5000/api/vendor-categories/${vendor.id}`,
+                  `http://https://weddingbloomai-production.up.railway.app/api/vendor-categories/${vendor.id}`,
                   {
                     headers: {
                       Authorization: `Bearer ${token}`,
@@ -362,7 +362,7 @@ function Vendors() {
     try {
 
       const response = await fetch(
-        `http://localhost:5000/api/vendor-categories/${vendorId}`,
+        `http://https://weddingbloomai-production.up.railway.app/api/vendor-categories/${vendorId}`,
         {
           method: "POST",
 
@@ -407,7 +407,7 @@ function Vendors() {
   const handleFavorite = async (vendorId) => {
   try {
     const response = await fetch(
-      "http://localhost:5000/api/favorites",
+      "http://https://weddingbloomai-production.up.railway.app/api/favorites",
       {
         method: "POST",
         headers: {
@@ -499,7 +499,7 @@ function Vendors() {
 
         const response =
           await fetch(
-            `http://localhost:5000/api/vendors/${editingVendor.id}`,
+            `http://https://weddingbloomai-production.up.railway.app/api/vendors/${editingVendor.id}`,
             {
               method: "PUT",
 
@@ -557,7 +557,7 @@ function Vendors() {
 
         const response =
           await fetch(
-            "http://localhost:5000/api/vendors",
+            "http://https://weddingbloomai-production.up.railway.app/api/vendors",
             {
               method: "POST",
 
@@ -695,7 +695,7 @@ function Vendors() {
 
       const response =
         await fetch(
-          `http://localhost:5000/api/vendors/${id}`,
+          `http://https://weddingbloomai-production.up.railway.app/api/vendors/${id}`,
           {
             method: "DELETE",
 

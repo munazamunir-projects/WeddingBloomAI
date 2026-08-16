@@ -13,7 +13,7 @@ import Swal from "sweetalert2";
 
 import "./Settings.css";
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = "http://https://weddingbloomai-production.up.railway.app/api";
 
 function Settings() {
   const { setTheme } = useTheme();

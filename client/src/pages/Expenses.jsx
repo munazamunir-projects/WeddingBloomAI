@@ -46,7 +46,7 @@ function Expenses() {
   const fetchWedding = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/weddings/my",
+        "http://https://weddingbloomai-production.up.railway.app/api/weddings/my",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -78,7 +78,7 @@ function Expenses() {
   const fetchCategories = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/expense-categories",
+        "http://https://weddingbloomai-production.up.railway.app/api/expense-categories",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -116,7 +116,7 @@ function Expenses() {
       setError("");
 
       const response = await fetch(
-        `http://localhost:5000/api/expenses/wedding/${id}`,
+        `http://https://weddingbloomai-production.up.railway.app/api/expenses/wedding/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -198,7 +198,7 @@ function Expenses() {
       setError("");
 
       const response = await fetch(
-        "http://localhost:5000/api/expenses",
+        "http://https://weddingbloomai-production.up.railway.app/api/expenses",
         {
           method: "POST",
           headers: {

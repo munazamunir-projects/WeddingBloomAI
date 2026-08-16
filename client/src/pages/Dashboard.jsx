@@ -38,7 +38,7 @@ function Dashboard() {
 
   const fetchWeddings = async () => {
     const response = await fetch(
-      "http://localhost:5000/api/weddings/my",
+      "http://https://weddingbloomai-production.up.railway.app/api/weddings/my",
       {
         method: "GET",
 
@@ -67,7 +67,7 @@ function Dashboard() {
 
   const fetchEvents = async (weddingId) => {
     const response = await fetch(
-      `http://localhost:5000/api/events/wedding/${weddingId}`,
+      `http://https://weddingbloomai-production.up.railway.app/api/events/wedding/${weddingId}`,
       {
         method: "GET",
 
@@ -96,7 +96,7 @@ function Dashboard() {
 
   const fetchExpenses = async (weddingId) => {
     const response = await fetch(
-      `http://localhost:5000/api/expenses/wedding/${weddingId}`,
+      `http://https://weddingbloomai-production.up.railway.app/api/expenses/wedding/${weddingId}`,
       {
         method: "GET",
 

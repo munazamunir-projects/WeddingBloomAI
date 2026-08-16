@@ -43,7 +43,7 @@ setLoading(true);
 setError("");
 
   const response = await fetch(
-    "http://localhost:5000/api/weddings/my",
+    "http://https://weddingbloomai-production.up.railway.app/api/weddings/my",
     {
       method: "GET",
       headers: {
@@ -105,7 +105,7 @@ try {
   setError("");
 
   const response = await fetch(
-    "http://localhost:5000/api/weddings",
+    "http://https://weddingbloomai-production.up.railway.app/api/weddings",
     {
       method: "POST",
       headers: {
