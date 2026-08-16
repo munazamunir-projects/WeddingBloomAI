@@ -30,7 +30,14 @@ const aiRoutes = require("./routes/aiRoutes");
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://wedding-bloom-ai.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
