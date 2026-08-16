@@ -38,7 +38,7 @@ function Dashboard() {
 
   const fetchWeddings = async () => {
     const response = await fetch(
-      "http://https://weddingbloomai-production.up.railway.app/api/weddings/my",
+      "https://weddingbloomai-production.up.railway.app/api/weddings/my",
       {
         method: "GET",
 

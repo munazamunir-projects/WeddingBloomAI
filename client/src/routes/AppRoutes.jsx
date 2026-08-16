@@ -39,13 +39,17 @@ function AppRoutes() {
       ========================= */}
 
       <Route
-        path="/"
-        element={
-          <AppLayout>
-            <Dashboard />
-          </AppLayout>
-        }
-      />
+  path="/"
+  element={
+    localStorage.getItem("token") ? (
+      <AppLayout>
+        <Dashboard />
+      </AppLayout>
+    ) : (
+      <Navigate to="/register" replace />
+    )
+  }
+/>
 
       <Route
         path="/weddings"

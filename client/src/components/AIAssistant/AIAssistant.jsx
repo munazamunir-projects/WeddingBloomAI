@@ -9,7 +9,7 @@ import {
 
 import "./AIAssistant.css";
 
-const API_URL = "http://https://weddingbloomai-production.up.railway.app/api";
+const API_URL = "https://weddingbloomai-production.up.railway.app/api";
 
 function AIAssistant() {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,7 +46,7 @@ const handleSend = async () => {
 
   try {
     const response = await fetch(
-      "http://https://weddingbloomai-production.up.railway.app/api/ai",
+      "https://weddingbloomai-production.up.railway.app/api/ai",
       {
         method: "POST",
 

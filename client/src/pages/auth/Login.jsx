@@ -42,7 +42,7 @@ try {
   setError("");
 
   const response = await fetch(
-    "http://https://weddingbloomai-production.up.railway.app/api/auth/login",
+    "https://weddingbloomai-production.up.railway.app/api/auth/login",
     {
       method: "POST",
       headers: {

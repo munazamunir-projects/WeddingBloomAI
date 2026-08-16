@@ -56,7 +56,7 @@ try {
   setError("");
 
   const response = await fetch(
-    "http://https://weddingbloomai-production.up.railway.app/api/auth/register",
+    "https://weddingbloomai-production.up.railway.app/api/auth/register",
     {
       method: "POST",
       headers: {

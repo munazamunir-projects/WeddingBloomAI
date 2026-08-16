@@ -120,7 +120,7 @@ function Vendors() {
       setLoading(true);
 
       const response = await fetch(
-        "http://https://weddingbloomai-production.up.railway.app/api/vendors",
+        "https://weddingbloomai-production.up.railway.app/api/vendors",
         {
           method: "GET",
 
@@ -407,7 +407,7 @@ function Vendors() {
   const handleFavorite = async (vendorId) => {
   try {
     const response = await fetch(
-      "http://https://weddingbloomai-production.up.railway.app/api/favorites",
+      "https://weddingbloomai-production.up.railway.app/api/favorites",
       {
         method: "POST",
         headers: {
@@ -557,7 +557,7 @@ function Vendors() {
 
         const response =
           await fetch(
-            "http://https://weddingbloomai-production.up.railway.app/api/vendors",
+            "https://weddingbloomai-production.up.railway.app/api/vendors",
             {
               method: "POST",
 

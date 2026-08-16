@@ -43,7 +43,7 @@ function Events() {
   const fetchWeddings = async () => {
     try {
       const response = await fetch(
-        "http://https://weddingbloomai-production.up.railway.app/api/weddings/my",
+        "https://weddingbloomai-production.up.railway.app/api/weddings/my",
         {
           method: "GET",
           headers: {
@@ -171,7 +171,7 @@ function Events() {
       setSaving(true);
 
       const response = await fetch(
-        "http://https://weddingbloomai-production.up.railway.app/api/events",
+        "https://weddingbloomai-production.up.railway.app/api/events",
         {
           method: "POST",
 

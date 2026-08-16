@@ -53,7 +53,7 @@ function Profile() {
       }
 
       const response = await fetch(
-        "http://https://weddingbloomai-production.up.railway.app/api/auth/profile",
+        "https://weddingbloomai-production.up.railway.app/api/auth/profile",
         {
           method: "GET",
           headers: {
@@ -149,7 +149,7 @@ function Profile() {
       }
 
       const response = await fetch(
-        "http://https://weddingbloomai-production.up.railway.app/api/auth/profile",
+        "https://weddingbloomai-production.up.railway.app/api/auth/profile",
         {
           method: "PUT",
           headers: {
