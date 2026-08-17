@@ -29,10 +29,20 @@ const aiRoutes = require("./routes/aiRoutes");
 
 
 const app = express();
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://wedding-bloom-ai.vercel.app",
+];
 
 app.use(
   cors({
-    origin: "https://wedding-bloom-ai.vercel.app",
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
