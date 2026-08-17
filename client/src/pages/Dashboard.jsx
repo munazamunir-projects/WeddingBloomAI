@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import {
   FaHeart,
@@ -14,6 +15,8 @@ import {
 import "./Dashboard.css";
 
 function Dashboard() {
+  const navigate = useNavigate();
+
   // =========================================
   // STATE
   // =========================================
@@ -25,12 +28,13 @@ function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  const user = JSON.parse(
-    localStorage.getItem("user")
-  );
+  const storedUser = localStorage.getItem("user");
+
+  const user = storedUser
+    ? JSON.parse(storedUser)
+    : null;
 
   const token = localStorage.getItem("token");
-
 
   // =========================================
   // FETCH WEDDINGS
@@ -41,7 +45,6 @@ function Dashboard() {
       "https://weddingbloomai-production.up.railway.app/api/weddings/my",
       {
         method: "GET",
-
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -60,17 +63,15 @@ function Dashboard() {
     return data.data || [];
   };
 
-
   // =========================================
   // FETCH EVENTS
   // =========================================
 
   const fetchEvents = async (weddingId) => {
     const response = await fetch(
-      `http://https://weddingbloomai-production.up.railway.app/api/events/wedding/${weddingId}`,
+      `https://weddingbloomai-production.up.railway.app/api/events/wedding/${weddingId}`,
       {
         method: "GET",
-
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -89,17 +90,15 @@ function Dashboard() {
     return data.data || [];
   };
 
-
   // =========================================
   // FETCH EXPENSES
   // =========================================
 
   const fetchExpenses = async (weddingId) => {
     const response = await fetch(
-      `http://https://weddingbloomai-production.up.railway.app/api/expenses/wedding/${weddingId}`,
+      `https://weddingbloomai-production.up.railway.app/api/expenses/wedding/${weddingId}`,
       {
         method: "GET",
-
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -118,7 +117,6 @@ function Dashboard() {
     return data.data || [];
   };
 
-
   // =========================================
   // LOAD DASHBOARD DATA
   // =========================================
@@ -128,39 +126,36 @@ function Dashboard() {
       setLoading(true);
       setError("");
 
+      if (!token) {
+        navigate("/login");
+        return;
+      }
+
       // Get weddings
       const weddingData = await fetchWeddings();
 
       setWeddings(weddingData);
 
-
-      // If there is no wedding,
-      // there are no events/expenses to fetch.
-
+      // No wedding yet
       if (weddingData.length === 0) {
         setEvents([]);
         setExpenses([]);
-
         return;
       }
 
-
-      // Use first/current wedding
+      // First/current wedding
       const currentWeddingId =
         weddingData[0].id;
 
-
-      // Fetch events and expenses together
+      // Get events and expenses
       const [eventData, expenseData] =
         await Promise.all([
           fetchEvents(currentWeddingId),
           fetchExpenses(currentWeddingId),
         ]);
 
-
       setEvents(eventData);
       setExpenses(expenseData);
-
     } catch (error) {
       console.error(
         "Dashboard Data Error:",
@@ -176,7 +171,6 @@ function Dashboard() {
     }
   };
 
-
   // =========================================
   // INITIAL LOAD
   // =========================================
@@ -184,7 +178,6 @@ function Dashboard() {
   useEffect(() => {
     loadDashboardData();
   }, []);
-
 
   // =========================================
   // CURRENT WEDDING
@@ -194,7 +187,6 @@ function Dashboard() {
     weddings.length > 0
       ? weddings[0]
       : null;
-
 
   // =========================================
   // TOTAL EXPENSE
@@ -206,7 +198,6 @@ function Dashboard() {
       Number(expense.amount || 0),
     0
   );
-
 
   // =========================================
   // DAYS REMAINING
@@ -224,7 +215,6 @@ function Dashboard() {
     );
 
     today.setHours(0, 0, 0, 0);
-
     weddingDate.setHours(0, 0, 0, 0);
 
     const difference =
@@ -237,10 +227,8 @@ function Dashboard() {
     );
   };
 
-
   const daysRemaining =
     getDaysRemaining();
-
 
   // =========================================
   // FORMAT DATE
@@ -262,7 +250,6 @@ function Dashboard() {
     );
   };
 
-
   // =========================================
   // RENDER
   // =========================================
@@ -283,7 +270,8 @@ function Dashboard() {
           </span>
 
           <h1>
-            Hello, {user?.full_name || "there"}.
+            Hello,{" "}
+            {user?.full_name || "there"}.
             <br />
             Let's plan your perfect day.
           </h1>
@@ -294,7 +282,6 @@ function Dashboard() {
           </p>
 
         </div>
-
 
         <div className="dashboard-welcome-icon">
           <FaHeart />
@@ -474,7 +461,6 @@ function Dashboard() {
                 )}
               </p>
 
-
               {(currentWedding.venue ||
                 currentWedding.city) && (
 
@@ -570,9 +556,12 @@ function Dashboard() {
             information will appear on your dashboard.
           </p>
 
-          <a
-            href="/weddings"
+          <button
+            type="button"
             className="dashboard-create-btn"
+            onClick={() =>
+              navigate("/weddings")
+            }
           >
 
             <FaPlus />
@@ -581,7 +570,7 @@ function Dashboard() {
 
             <FaArrowRight />
 
-          </a>
+          </button>
 
         </section>
 
@@ -618,7 +607,12 @@ function Dashboard() {
 
           <div className="dashboard-quick-links">
 
-            <a href="/weddings">
+            <button
+              type="button"
+              onClick={() =>
+                navigate("/weddings")
+              }
+            >
 
               <FaHeart />
 
@@ -628,10 +622,15 @@ function Dashboard() {
 
               <FaArrowRight />
 
-            </a>
+            </button>
 
 
-            <a href="/guests">
+            <button
+              type="button"
+              onClick={() =>
+                navigate("/guests")
+              }
+            >
 
               <FaUsers />
 
@@ -641,10 +640,15 @@ function Dashboard() {
 
               <FaArrowRight />
 
-            </a>
+            </button>
 
 
-            <a href="/events">
+            <button
+              type="button"
+              onClick={() =>
+                navigate("/events")
+              }
+            >
 
               <FaCalendarAlt />
 
@@ -654,10 +658,15 @@ function Dashboard() {
 
               <FaArrowRight />
 
-            </a>
+            </button>
 
 
-            <a href="/expenses">
+            <button
+              type="button"
+              onClick={() =>
+                navigate("/expenses")
+              }
+            >
 
               <FaMoneyBillWave />
 
@@ -667,7 +676,7 @@ function Dashboard() {
 
               <FaArrowRight />
 
-            </a>
+            </button>
 
           </div>
 
@@ -738,11 +747,13 @@ function Dashboard() {
                 </span>
 
                 <strong>
+
                   {currentWedding.total_budget
                     ? `Rs. ${Number(
                         currentWedding.total_budget
                       ).toLocaleString()}`
                     : "—"}
+
                 </strong>
 
               </div>
@@ -762,8 +773,6 @@ function Dashboard() {
               </div>
 
 
-              {/* EVENTS */}
-
               <div className="dashboard-status-row">
 
                 <span>
@@ -779,8 +788,6 @@ function Dashboard() {
               </div>
 
 
-              {/* EXPENSES */}
-
               <div className="dashboard-status-row">
 
                 <span>
@@ -788,9 +795,11 @@ function Dashboard() {
                 </span>
 
                 <strong>
+
                   {loading
                     ? "..."
                     : `Rs. ${totalExpenses.toLocaleString()}`}
+
                 </strong>
 
               </div>

@@ -90,7 +90,7 @@ function Events() {
       setLoading(true);
 
       const response = await fetch(
-        `http://https://weddingbloomai-production.up.railway.app/api/events/wedding/${weddingId}`,
+        `https://weddingbloomai-production.up.railway.app/api/events/wedding/${weddingId}`,
         {
           method: "GET",
           headers: {
