@@ -1,3 +1,13 @@
+/* =========================================================
+   REGISTER PAGE — WEDDING BLOOM
+   LIGHT + DARK THEME
+========================================================= */
+
+
+/* =========================
+   PAGE
+========================= */
+
 .register-page {
   min-height: 100vh;
 
@@ -10,10 +20,16 @@
   background:
     radial-gradient(
       circle at bottom right,
-      #fff1f2,
+      var(--blush),
       transparent 35%
     ),
-    var(--ivory);
+    var(--bg-primary);
+
+  color: var(--text-primary);
+
+  transition:
+    background-color var(--transition-normal),
+    color var(--transition-normal);
 }
 
 
@@ -34,13 +50,18 @@
 
   overflow: hidden;
 
-  background: var(--white);
+  background: var(--bg-card);
 
   border: 1px solid var(--border);
 
   border-radius: 28px;
 
   box-shadow: var(--shadow-lg);
+
+  transition:
+    background-color var(--transition-normal),
+    border-color var(--transition-normal),
+    box-shadow var(--transition-normal);
 }
 
 
@@ -63,10 +84,17 @@
   background:
     linear-gradient(
       145deg,
-      #f5dfe2,
-      #faeee5
+      var(--blush),
+      var(--ivory)
     );
+
+  transition:
+    background var(--transition-normal),
+    color var(--transition-normal);
 }
+
+
+/* Decorative Circle */
 
 .register-brand-panel::before {
   content: "";
@@ -81,8 +109,13 @@
 
   border-radius: 50%;
 
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.20);
+
+  pointer-events: none;
 }
+
+
+/* Decorative Circle */
 
 .register-brand-panel::after {
   content: "";
@@ -97,8 +130,15 @@
 
   border-radius: 50%;
 
-  background: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.12);
+
+  pointer-events: none;
 }
+
+
+/* =========================
+   BRAND LOGO
+========================= */
 
 .register-brand-logo {
   position: relative;
@@ -118,12 +158,21 @@
 
   background: var(--rose);
 
-  color: white;
+  color: #ffffff;
 
   font-size: 27px;
 
   box-shadow: var(--shadow-md);
+
+  transition:
+    background var(--transition-normal),
+    box-shadow var(--transition-normal);
 }
+
+
+/* =========================
+   BRAND EYEBROW
+========================= */
 
 .register-brand-eyebrow {
   position: relative;
@@ -133,10 +182,19 @@
   color: var(--rose-dark);
 
   font-size: 10px;
+
   font-weight: 800;
 
   letter-spacing: 2px;
+
+  transition:
+    color var(--transition-normal);
 }
+
+
+/* =========================
+   BRAND HEADING
+========================= */
 
 .register-brand-panel h1 {
   position: relative;
@@ -147,12 +205,23 @@
 
   color: var(--wine);
 
-  font-family: Georgia, "Times New Roman", serif;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
   font-size: clamp(34px, 4vw, 48px);
 
   line-height: 1.08;
+
+  transition:
+    color var(--transition-normal);
 }
+
+
+/* =========================
+   BRAND DESCRIPTION
+========================= */
 
 .register-brand-panel p {
   position: relative;
@@ -168,7 +237,15 @@
   font-size: 13px;
 
   line-height: 1.7;
+
+  transition:
+    color var(--transition-normal);
 }
+
+
+/* =========================
+   BRAND HEART
+========================= */
 
 .register-brand-heart {
   position: relative;
@@ -180,6 +257,9 @@
   color: var(--rose);
 
   font-size: 30px;
+
+  transition:
+    color var(--transition-normal);
 }
 
 
@@ -189,22 +269,40 @@
 
 .register-form-panel {
   display: flex;
+
   flex-direction: column;
 
   justify-content: center;
 
   padding: 48px 55px;
+
+  background: var(--bg-card);
+
+  transition:
+    background-color var(--transition-normal);
 }
+
+
+/* =========================
+   FORM HEADER
+========================= */
 
 .register-form-header h2 {
   margin: 0;
 
   color: var(--wine);
 
-  font-family: Georgia, "Times New Roman", serif;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
   font-size: 30px;
+
+  transition:
+    color var(--transition-normal);
 }
+
 
 .register-form-header p {
   margin-top: 8px;
@@ -214,7 +312,15 @@
   font-size: 12px;
 
   line-height: 1.5;
+
+  transition:
+    color var(--transition-normal);
 }
+
+
+/* =========================
+   MOBILE LOGO
+========================= */
 
 .register-mobile-logo {
   display: none;
@@ -227,6 +333,7 @@
 
 .register-form {
   display: flex;
+
   flex-direction: column;
 
   gap: 15px;
@@ -234,10 +341,17 @@
   margin-top: 27px;
 }
 
+
+/* =========================
+   FIELD
+========================= */
+
 .register-field {
   display: flex;
+
   flex-direction: column;
 }
+
 
 .register-field label {
   margin-bottom: 7px;
@@ -245,16 +359,21 @@
   color: var(--wine);
 
   font-size: 11px;
+
   font-weight: 700;
+
+  transition:
+    color var(--transition-normal);
 }
 
 
 /* =========================
-   INPUT
+   INPUT WRAPPER
 ========================= */
 
 .register-input {
   display: flex;
+
   align-items: center;
 
   gap: 10px;
@@ -267,15 +386,30 @@
 
   background: var(--ivory);
 
-  transition: 0.2s ease;
+  transition:
+    background-color var(--transition-normal),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
+
+/* =========================
+   INPUT FOCUS
+========================= */
+
 .register-input:focus-within {
+  background: var(--bg-card);
+
   border-color: var(--rose);
 
   box-shadow:
-    0 0 0 3px rgba(179, 91, 108, 0.08);
+    0 0 0 3px rgba(208, 138, 150, 0.12);
 }
+
+
+/* =========================
+   INPUT ICON
+========================= */
 
 .register-input > svg {
   flex-shrink: 0;
@@ -283,12 +417,23 @@
   color: var(--text-muted);
 
   font-size: 12px;
+
+  transition:
+    color var(--transition-normal);
 }
+
+
+/* =========================
+   INPUT
+========================= */
 
 .register-input input {
   width: 100%;
 
+  min-width: 0;
+
   border: none;
+
   outline: none;
 
   background: transparent;
@@ -298,16 +443,30 @@
   font-family: inherit;
 
   font-size: 12px;
+
+  padding: 0;
+
+  transition:
+    color var(--transition-normal);
 }
+
 
 .register-input input::placeholder {
   color: var(--text-muted);
 }
 
+
+/* =========================
+   PASSWORD TOGGLE
+========================= */
+
 .register-password-toggle {
   display: flex;
+
   align-items: center;
   justify-content: center;
+
+  flex-shrink: 0;
 
   padding: 0;
 
@@ -320,19 +479,26 @@
   cursor: pointer;
 
   font-size: 12px;
+
+  transition:
+    color var(--transition-fast);
 }
 
+
 .register-password-toggle:hover {
-  color: var(--rose-dark);
+  color: var(--rose);
+
+  background: transparent;
 }
 
 
 /* =========================
-   SUBMIT
+   SUBMIT BUTTON
 ========================= */
 
 .register-submit-btn {
   display: flex;
+
   align-items: center;
   justify-content: center;
 
@@ -348,26 +514,36 @@
 
   background: var(--rose);
 
-  color: white;
+  color: #ffffff;
 
   font-family: inherit;
 
   font-size: 12px;
+
   font-weight: 700;
 
   cursor: pointer;
 
   box-shadow: var(--shadow-sm);
 
-  transition: 0.2s ease;
+  transition:
+    background var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
+
 
 .register-submit-btn:hover {
   transform: translateY(-2px);
 
-  box-shadow: var(--shadow-md);
-
   background: var(--rose-dark);
+
+  box-shadow: var(--shadow-md);
+}
+
+
+.register-submit-btn:active {
+  transform: translateY(0);
 }
 
 
@@ -377,6 +553,7 @@
 
 .register-switch {
   display: flex;
+
   justify-content: center;
 
   gap: 5px;
@@ -386,9 +563,14 @@
   font-size: 11px;
 }
 
+
 .register-switch span {
   color: var(--text-secondary);
+
+  transition:
+    color var(--transition-normal);
 }
+
 
 .register-switch a {
   color: var(--rose-dark);
@@ -396,16 +578,63 @@
   font-weight: 700;
 
   text-decoration: none;
+
+  transition:
+    color var(--transition-fast);
 }
 
+
 .register-switch a:hover {
+  color: var(--rose);
+
   text-decoration: underline;
 }
 
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark .register-brand-panel {
+  background:
+    linear-gradient(
+      145deg,
+      #3b292d,
+      #21191c
+    );
+}
+
+
+body.dark .register-brand-panel::before {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+
+body.dark .register-brand-panel::after {
+  background: rgba(213, 138, 150, 0.06);
+}
+
+
+body.dark .register-input {
+  background: var(--ivory);
+
+  border-color: var(--border);
+}
+
+
+body.dark .register-input:focus-within {
+  background: var(--bg-card);
+
+  border-color: var(--rose);
+
+  box-shadow:
+    0 0 0 3px rgba(213, 138, 150, 0.12);
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
 
 @media (max-width: 800px) {
 
@@ -413,25 +642,30 @@
     padding: 20px;
   }
 
+
   .register-container {
     grid-template-columns: 1fr;
 
     min-height: auto;
   }
 
+
   .register-brand-panel {
     display: none;
   }
 
+
   .register-form-panel {
     padding: 45px 35px;
   }
+
 
   .register-mobile-logo {
     width: 48px;
     height: 48px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -441,13 +675,19 @@
 
     background: var(--rose);
 
-    color: white;
+    color: #ffffff;
 
     font-size: 22px;
+
+    box-shadow: var(--shadow-sm);
   }
 
 }
 
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
 
 @media (max-width: 480px) {
 
@@ -455,16 +695,41 @@
     padding: 12px;
   }
 
+
   .register-container {
     border-radius: 20px;
   }
+
 
   .register-form-panel {
     padding: 35px 22px;
   }
 
+
   .register-form-header h2 {
     font-size: 26px;
+  }
+
+
+  .register-form-header p {
+    font-size: 11px;
+  }
+
+
+  .register-form {
+    gap: 13px;
+
+    margin-top: 23px;
+  }
+
+
+  .register-input {
+    padding: 11px 12px;
+  }
+
+
+  .register-submit-btn {
+    padding: 12px;
   }
 
 }

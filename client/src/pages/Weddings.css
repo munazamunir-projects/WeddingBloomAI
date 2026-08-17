@@ -1,12 +1,24 @@
 /* =========================================================
-   WEDDINGS PAGE
+   WEDDING BLOOM — WEDDINGS PAGE
+   THEME AWARE CSS
+========================================================= */
+
+
+/* =========================================================
+   PAGE
 ========================================================= */
 
 .weddings-page {
   min-height: 100%;
   padding: 32px;
   box-sizing: border-box;
+
+  background: var(--bg-primary);
   color: var(--text-primary);
+
+  transition:
+    background-color var(--transition-normal),
+    color var(--transition-normal);
 }
 
 
@@ -32,8 +44,8 @@
 
   font-size: 10px;
   font-weight: 800;
-  letter-spacing: 1.8px;
 
+  letter-spacing: 1.8px;
   text-transform: uppercase;
 }
 
@@ -48,6 +60,8 @@
   font-weight: 600;
 
   line-height: 1.15;
+
+  transition: color var(--transition-normal);
 }
 
 .weddings-header p {
@@ -57,6 +71,8 @@
 
   font-size: 14px;
   line-height: 1.5;
+
+  transition: color var(--transition-normal);
 }
 
 
@@ -80,7 +96,7 @@
   border-radius: 12px;
 
   background: var(--rose);
-  color: white;
+  color: #ffffff;
 
   font-family: inherit;
 
@@ -92,9 +108,9 @@
   box-shadow: var(--shadow-sm);
 
   transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    background 0.2s ease;
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background var(--transition-fast);
 }
 
 .weddings-primary-btn:hover {
@@ -136,7 +152,7 @@
 
   padding: 11px 14px;
 
-  background: var(--white);
+  background: var(--bg-card);
 
   border: 1px solid var(--border);
 
@@ -145,15 +161,16 @@
   box-shadow: var(--shadow-sm);
 
   transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+    background-color var(--transition-normal),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
 .weddings-search:focus-within {
   border-color: var(--rose);
 
   box-shadow:
-    0 0 0 3px rgba(179, 91, 108, 0.08);
+    0 0 0 3px rgba(183, 110, 121, 0.12);
 }
 
 .weddings-search svg {
@@ -162,10 +179,14 @@
   color: var(--text-muted);
 
   font-size: 13px;
+
+  transition: color var(--transition-normal);
 }
 
 .weddings-search input {
   width: 100%;
+
+  padding: 0;
 
   border: none;
   outline: none;
@@ -177,6 +198,14 @@
   font-family: inherit;
 
   font-size: 12px;
+
+  box-shadow: none;
+}
+
+.weddings-search input:focus {
+  border: none;
+
+  box-shadow: none;
 }
 
 .weddings-search input::placeholder {
@@ -216,7 +245,7 @@
 
   padding: 23px;
 
-  background: var(--white);
+  background: var(--bg-card);
 
   border: 1px solid var(--border);
 
@@ -225,9 +254,10 @@
   box-shadow: var(--shadow-sm);
 
   transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    border-color 0.2s ease;
+    transform var(--transition-fast),
+    background-color var(--transition-normal),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
 .wedding-card::before {
@@ -243,15 +273,21 @@
 
   border-radius: 50%;
 
-  background: rgba(246, 223, 226, 0.45);
+  background: var(--blush);
+
+  opacity: 0.55;
 
   pointer-events: none;
+
+  transition:
+    background-color var(--transition-normal),
+    opacity var(--transition-normal);
 }
 
 .wedding-card:hover {
   transform: translateY(-3px);
 
-  border-color: #e6c4ca;
+  border-color: var(--rose-light);
 
   box-shadow: var(--shadow-md);
 }
@@ -289,19 +325,17 @@
 
   border-radius: 14px;
 
-  background:
-    linear-gradient(
-      135deg,
-      #f6dfe2,
-      #f9eee5
-    );
+  background: var(--blush);
 
   color: var(--rose);
 
   font-size: 18px;
 
-  box-shadow:
-    0 5px 14px rgba(179, 91, 108, 0.08);
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    background-color var(--transition-normal),
+    color var(--transition-normal);
 }
 
 .wedding-card-status {
@@ -309,7 +343,7 @@
 
   border-radius: 20px;
 
-  background: var(--rose-light);
+  background: var(--blush);
 
   color: var(--rose-dark);
 
@@ -321,6 +355,10 @@
   letter-spacing: 0.7px;
 
   white-space: nowrap;
+
+  transition:
+    background-color var(--transition-normal),
+    color var(--transition-normal);
 }
 
 
@@ -345,6 +383,8 @@
   line-height: 1.2;
 
   word-break: break-word;
+
+  transition: color var(--transition-normal);
 }
 
 .wedding-card-date {
@@ -363,6 +403,8 @@
   color: var(--text-secondary);
 
   font-size: 12px;
+
+  transition: color var(--transition-normal);
 }
 
 .wedding-card-date svg {
@@ -395,6 +437,8 @@
   padding-top: 17px;
 
   border-top: 1px solid var(--border);
+
+  transition: border-color var(--transition-normal);
 }
 
 .wedding-detail {
@@ -424,6 +468,8 @@
 
   font-size: 9px;
   font-weight: 600;
+
+  transition: color var(--transition-normal);
 }
 
 .wedding-detail strong {
@@ -438,6 +484,8 @@
   font-weight: 700;
 
   word-break: break-word;
+
+  transition: color var(--transition-normal);
 }
 
 
@@ -477,10 +525,11 @@
   cursor: pointer;
 
   transition:
-    transform 0.2s ease,
-    background 0.2s ease,
-    color 0.2s ease,
-    box-shadow 0.2s ease;
+    transform var(--transition-fast),
+    background var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
 .wedding-card-actions button:hover {
@@ -488,7 +537,9 @@
 }
 
 
-/* EDIT */
+/* =========================================================
+   EDIT BUTTON
+========================================================= */
 
 .wedding-edit-btn {
   border: 1px solid var(--border);
@@ -499,7 +550,7 @@
 }
 
 .wedding-edit-btn:hover {
-  background: var(--rose-light);
+  background: var(--blush);
 
   color: var(--rose-dark);
 
@@ -507,20 +558,22 @@
 }
 
 
-/* DELETE */
+/* =========================================================
+   DELETE BUTTON
+========================================================= */
 
 .wedding-delete-btn {
-  border: 1px solid #efd7da;
+  border: 1px solid var(--danger-bg);
 
-  background: #fff7f7;
+  background: var(--danger-bg);
 
-  color: #a85d68;
+  color: var(--danger);
 }
 
 .wedding-delete-btn:hover {
-  background: #fbe7e9;
+  background: var(--danger-bg-hover);
 
-  color: #923f4d;
+  color: var(--danger);
 
   box-shadow: var(--shadow-sm);
 }
@@ -548,18 +601,18 @@
 
   text-align: center;
 
-  background:
-    linear-gradient(
-      145deg,
-      #fffdfb,
-      #fff7f4
-    );
+  background: var(--bg-card);
 
   border: 1px solid var(--border);
 
   border-radius: 22px;
 
   box-shadow: var(--shadow-sm);
+
+  transition:
+    background-color var(--transition-normal),
+    border-color var(--transition-normal),
+    box-shadow var(--transition-normal);
 }
 
 .weddings-empty-card::before {
@@ -575,7 +628,9 @@
 
   border-radius: 50%;
 
-  background: rgba(246, 223, 226, 0.4);
+  background: var(--blush);
+
+  opacity: 0.45;
 
   pointer-events: none;
 }
@@ -593,7 +648,9 @@
 
   border-radius: 50%;
 
-  background: rgba(249, 238, 229, 0.55);
+  background: var(--ivory);
+
+  opacity: 0.8;
 
   pointer-events: none;
 }
@@ -609,9 +666,11 @@
 
   gap: 17px;
 
-  color: #dfb7bd;
+  color: var(--rose-light);
 
   font-size: 11px;
+
+  transition: color var(--transition-normal);
 }
 
 .weddings-empty-decoration svg {
@@ -637,18 +696,17 @@
 
   border-radius: 24px;
 
-  background:
-    linear-gradient(
-      135deg,
-      #f6dfe2,
-      #f9eee5
-    );
+  background: var(--blush);
 
   color: var(--rose);
 
   font-size: 37px;
 
   box-shadow: var(--shadow-sm);
+
+  transition:
+    background-color var(--transition-normal),
+    color var(--transition-normal);
 }
 
 .weddings-empty-card h2 {
@@ -664,6 +722,8 @@
 
   font-size: 25px;
   font-weight: 600;
+
+  transition: color var(--transition-normal);
 }
 
 .weddings-empty-card p {
@@ -680,6 +740,8 @@
   font-size: 13px;
 
   line-height: 1.6;
+
+  transition: color var(--transition-normal);
 }
 
 .weddings-empty-btn {
@@ -703,7 +765,7 @@
 
   background: var(--rose);
 
-  color: white;
+  color: #ffffff;
 
   font-family: inherit;
 
@@ -715,9 +777,9 @@
   box-shadow: var(--shadow-sm);
 
   transition:
-    transform 0.2s ease,
-    background 0.2s ease,
-    box-shadow 0.2s ease;
+    transform var(--transition-fast),
+    background var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
 .weddings-empty-btn:hover {
@@ -767,7 +829,7 @@
 
   padding: 28px;
 
-  background: var(--white);
+  background: var(--bg-card);
 
   border: 1px solid var(--border);
 
@@ -776,6 +838,10 @@
   box-shadow: var(--shadow-lg);
 
   animation: weddingModalIn 0.2s ease-out;
+
+  transition:
+    background-color var(--transition-normal),
+    border-color var(--transition-normal);
 }
 
 .weddings-modal::-webkit-scrollbar {
@@ -783,7 +849,7 @@
 }
 
 .weddings-modal::-webkit-scrollbar-thumb {
-  background: #e5c5ca;
+  background: var(--rose-light);
 
   border-radius: 10px;
 }
@@ -809,6 +875,11 @@
       scale(1);
   }
 }
+
+
+/* =========================================================
+   MODAL HEADER
+========================================================= */
 
 .weddings-modal-header {
   display: flex;
@@ -843,7 +914,14 @@
 
   font-size: 23px;
   font-weight: 600;
+
+  transition: color var(--transition-normal);
 }
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
 
 .weddings-close-btn {
   width: 34px;
@@ -867,9 +945,9 @@
   cursor: pointer;
 
   transition:
-    background 0.2s ease,
-    color 0.2s ease,
-    transform 0.2s ease;
+    background var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .weddings-close-btn:hover {
@@ -899,7 +977,14 @@
   font-size: 11px;
 
   font-weight: 700;
+
+  transition: color var(--transition-normal);
 }
+
+
+/* =========================================================
+   INPUT WRAPPER
+========================================================= */
 
 .weddings-input-wrapper {
   display: flex;
@@ -917,22 +1002,22 @@
   border-radius: 10px;
 
   transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease,
-    background 0.2s ease;
+    background-color var(--transition-normal),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
 .weddings-input-wrapper:hover {
-  border-color: #dfc1c6;
+  border-color: var(--rose-light);
 }
 
 .weddings-input-wrapper:focus-within {
-  background: var(--white);
+  background: var(--bg-card);
 
   border-color: var(--rose);
 
   box-shadow:
-    0 0 0 3px rgba(179, 91, 108, 0.08);
+    0 0 0 3px rgba(183, 110, 121, 0.12);
 }
 
 .weddings-input-wrapper svg {
@@ -948,6 +1033,8 @@
 
   min-width: 0;
 
+  padding: 0;
+
   border: none;
   outline: none;
 
@@ -958,6 +1045,14 @@
   font-family: inherit;
 
   font-size: 12px;
+
+  box-shadow: none;
+}
+
+.weddings-input-wrapper input:focus {
+  border: none;
+
+  box-shadow: none;
 }
 
 .weddings-input-wrapper input::placeholder {
@@ -1002,15 +1097,20 @@
   cursor: pointer;
 
   transition:
-    transform 0.2s ease,
-    background 0.2s ease,
-    box-shadow 0.2s ease;
+    transform var(--transition-fast),
+    background var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
+
+
+/* CANCEL */
 
 .weddings-cancel-btn {
   border: 1px solid var(--border);
 
-  background: var(--white);
+  background: var(--bg-card);
 
   color: var(--text-secondary);
 }
@@ -1019,14 +1119,19 @@
   background: var(--ivory);
 
   color: var(--wine);
+
+  border-color: var(--rose-light);
 }
+
+
+/* SAVE */
 
 .weddings-save-btn {
   border: none;
 
   background: var(--rose);
 
-  color: white;
+  color: #ffffff;
 
   box-shadow: var(--shadow-sm);
 }
@@ -1038,6 +1143,9 @@
 
   box-shadow: var(--shadow-md);
 }
+
+
+/* DISABLED */
 
 .weddings-cancel-btn:disabled,
 .weddings-save-btn:disabled {
