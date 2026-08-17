@@ -38,16 +38,12 @@ function AppRoutes() {
           APPLICATION
       ========================= */}
 
-      <Route
+     <Route
   path="/"
   element={
-    localStorage.getItem("token") ? (
-      <AppLayout>
-        <Dashboard />
-      </AppLayout>
-    ) : (
-      <Navigate to="/register" replace />
-    )
+    <AppLayout>
+      <Dashboard />
+    </AppLayout>
   }
 />
 
