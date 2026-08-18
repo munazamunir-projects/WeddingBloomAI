@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { useTheme } from "../../context/ThemeContext";
+
 import {
   FaBars,
   FaBell,
@@ -9,11 +11,18 @@ import {
   FaUser,
   FaCog,
   FaSignOutAlt,
+  FaMoon,
+  FaSun,
 } from "react-icons/fa";
 
 import "./Navbar.css";
 
 function Navbar({ onMenuClick }) {
+  const {
+    theme,
+    toggleTheme,
+    isDarkMode,
+  } = useTheme();
   const navigate = useNavigate();
 
   const [profileOpen, setProfileOpen] = useState(false);
@@ -140,6 +149,31 @@ function Navbar({ onMenuClick }) {
       ========================= */}
 
       <div className="navbar-right">
+
+
+        {/* =========================
+    THEME TOGGLE
+========================= */}
+
+<button
+  type="button"
+  className={`navbar-theme-btn ${
+    isDarkMode ? "dark" : "light"
+  }`}
+  onClick={toggleTheme}
+  aria-label={
+    isDarkMode
+      ? "Switch to light mode"
+      : "Switch to dark mode"
+  }
+  title={
+    isDarkMode
+      ? "Switch to light mode"
+      : "Switch to dark mode"
+  }
+>
+  {isDarkMode ? <FaSun /> : <FaMoon />}
+</button>
 
 
         {/* =========================
