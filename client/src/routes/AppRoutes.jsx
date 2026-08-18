@@ -6,6 +6,8 @@ import AppLayout from "../components/layout/AppLayout";
 import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
 
+import VendorDashboard from "../pages/VendorDashboard";
+
 import Dashboard from "../pages/Dashboard";
 import Weddings from "../pages/Weddings";
 import Guests from "../pages/Guests";
@@ -43,6 +45,15 @@ function AppRoutes() {
   element={
     <AppLayout>
       <Dashboard />
+    </AppLayout>
+  }
+/>
+
+<Route
+  path="/vendor-dashboard"
+  element={
+    <AppLayout>
+      <VendorDashboard />
     </AppLayout>
   }
 />

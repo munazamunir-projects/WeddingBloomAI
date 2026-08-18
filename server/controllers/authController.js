@@ -8,6 +8,14 @@ const {
   updateProfile,
 } = require("../models/userModel");
 
+const {
+  createVendor,
+} = require("../models/vendorModel");
+
+const {
+  addVendorCategory,
+} = require("../models/vendorCategoryMapModel");
+
 
 // =========================
 // REGISTER
@@ -21,7 +29,19 @@ const register = async (req, res) => {
       password,
       role,
       phone,
+
+      // Vendor fields
+      business_name,
+      category_id,
+      address,
+      city,
+      experience_years,
+      description,
     } = req.body;
+
+    // =========================
+    // BASIC VALIDATION
+    // =========================
 
     if (!full_name || !email || !password) {
       return res.status(400).json({
@@ -30,9 +50,13 @@ const register = async (req, res) => {
       });
     }
 
+    // =========================
+    // CHECK EMAIL
+    // =========================
+
     findUserByEmail(email, async (err, result) => {
       if (err) {
-        console.log(err);
+        console.log("Find User Error:", err);
 
         return res.status(500).json({
           success: false,
@@ -47,7 +71,18 @@ const register = async (req, res) => {
         });
       }
 
-      const hashedPassword = await bcrypt.hash(password, 10);
+      // =========================
+      // HASH PASSWORD
+      // =========================
+
+      const hashedPassword = await bcrypt.hash(
+        password,
+        10
+      );
+
+      // =========================
+      // CREATE USER
+      // =========================
 
       createUser(
         {
@@ -57,9 +92,10 @@ const register = async (req, res) => {
           role: role || "couple",
           phone: phone || null,
         },
-        (err, result) => {
+        (err, userResult) => {
+
           if (err) {
-            console.log(err);
+            console.log("Create User Error:", err);
 
             return res.status(500).json({
               success: false,
@@ -67,29 +103,144 @@ const register = async (req, res) => {
             });
           }
 
-          return res.status(201).json({
-            success: true,
-            message: "Registration successful.",
-            data: {
-              id: result.insertId,
-              full_name,
+          const userId = userResult.insertId;
+
+          // =========================
+          // COUPLE REGISTRATION
+          // =========================
+
+          if (role !== "vendor") {
+
+            return res.status(201).json({
+              success: true,
+              message: "Couple registration successful.",
+              data: {
+                id: userId,
+                full_name,
+                email,
+                role: "couple",
+              },
+            });
+
+          }
+
+          // =========================
+          // VENDOR VALIDATION
+          // =========================
+
+          if (!business_name || !category_id) {
+
+            return res.status(400).json({
+              success: false,
+              message:
+                "Business name and vendor category are required.",
+            });
+
+          }
+
+          // =========================
+          // CREATE VENDOR PROFILE
+          // =========================
+
+          createVendor(
+            {
+              user_id: userId,
+              business_name,
+              description: description || null,
+              phone: phone || null,
               email,
-              role: role || "couple",
+              address: address || null,
+              city: city || null,
+              experience_years:
+                experience_years || 0,
+              profile_image: null,
             },
-          });
+            (err, vendorResult) => {
+
+              if (err) {
+                console.log(
+                  "Create Vendor Profile Error:",
+                  err
+                );
+
+                return res.status(500).json({
+                  success: false,
+                  message:
+                    "User created but vendor profile could not be created.",
+                  error: err.message,
+                });
+              }
+
+              const vendorId =
+                vendorResult.insertId;
+
+              // =========================
+              // ADD VENDOR CATEGORY
+              // =========================
+
+              addVendorCategory(
+                vendorId,
+                Number(category_id),
+                (err) => {
+
+                  if (err) {
+                    console.log(
+                      "Add Vendor Category Error:",
+                      err
+                    );
+
+                    return res.status(500).json({
+                      success: false,
+                      message:
+                        "Vendor profile created but category could not be saved.",
+                      error: err.message,
+                    });
+                  }
+
+                  // =========================
+                  // SUCCESS
+                  // =========================
+
+                  return res.status(201).json({
+                    success: true,
+                    message:
+                      "Vendor registration successful.",
+                    data: {
+                      user_id: userId,
+                      vendor_id: vendorId,
+                      full_name,
+                      email,
+                      role: "vendor",
+                      category_id:
+                        Number(category_id),
+                    },
+                  });
+
+                }
+              );
+
+            }
+          );
+
         }
       );
+
     });
+
   } catch (error) {
-    console.log(error);
+
+    console.log(
+      "Registration Server Error:",
+      error
+    );
 
     return res.status(500).json({
       success: false,
       message: "Server error.",
     });
+
   }
 };
-
 
 // =========================
 // LOGIN

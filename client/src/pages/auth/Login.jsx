@@ -60,29 +60,32 @@ try {
   console.log("LOGIN RESPONSE:", data);
 
   if (!response.ok) {
+
     setError(data.message || "Invalid email or password.");
     return;
   }
 
-  /*
-    Save the real authenticated user.
-    The backend provides the JWT and user role.
-  */
+  console.log("LOGIN RESPONSE:", data);
+console.log("TOKEN FROM BACKEND:", data.token);
+console.log("USER FROM BACKEND:", data.user);
 
-  localStorage.setItem("token", data.token);
-  localStorage.setItem("user", JSON.stringify(data.user));
+localStorage.setItem("token", data.token);
+localStorage.setItem("user", JSON.stringify(data.user));
 
-  /*
-    For the current phase we are building
-    the Couple flow.
-  */
+console.log("TOKEN AFTER SAVE:", localStorage.getItem("token"));
+console.log("USER AFTER SAVE:", localStorage.getItem("user"));
 
-  if (data.user.role === "couple") {
-    navigate("/");
-    return;
-  }
+ if (data.user.role === "couple") {
+  navigate("/");
+  return;
+}
 
-  setError("This account does not have Couple access.");
+if (data.user.role === "vendor") {
+  navigate("/vendor-dashboard");
+  return;
+}
+
+setError("Invalid account role.");
 } catch (error) {
   console.error(error);
 

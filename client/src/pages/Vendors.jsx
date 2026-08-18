@@ -113,116 +113,90 @@ function Vendors() {
   // FETCH VENDORS
   // =========================
 
-  const fetchVendors = async () => {
+ const fetchVendors = async () => {
+  try {
+    setLoading(true);
 
-    try {
-
-      setLoading(true);
-
-      const response = await fetch(
-       "https://weddingbloomai-production.up.railway.app/api/vendors",
-        {
-          method: "GET",
-
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-
-      const data = await response.json();
-
-
-      if (!response.ok) {
-
-        throw new Error(
-          data.message || "Failed to fetch vendors."
-        );
-
-      }
-
-
-      const vendorList = data.data || [];
-
-
-      // Fetch categories for every vendor
-      const vendorsWithCategories =
-        await Promise.all(
-
-          vendorList.map(async (vendor) => {
-
-            try {
-
-              const categoryResponse =
-                await fetch(
-                 `https://weddingbloomai-production.up.railway.app/api/vendor-categories/${vendor.id}`,
-                  {
-                    headers: {
-                      Authorization: `Bearer ${token}`,
-                    },
-                  }
-                );
-
-
-              const categoryData =
-                await categoryResponse.json();
-
-
-              return {
-                ...vendor,
-
-                categories:
-                  categoryData.data || [],
-              };
-
-            } catch (error) {
-
-              console.error(
-                "Category fetch error:",
-                error
-              );
-
-
-              return {
-                ...vendor,
-                categories: [],
-              };
-
-            }
-
-          })
-
-        );
-
-
-      setVendors(
-        vendorsWithCategories
-      );
-
-    } catch (error) {
-
-      console.error(
-        "Fetch Vendors Error:",
-        error
-      );
-
-
-      Swal.fire({
-        icon: "error",
-        title: "Unable to load vendors",
-        text: error.message,
-        confirmButtonColor: "#b35b6c",
-      });
-
-    } finally {
-
-      setLoading(false);
-
+    if (!token) {
+      throw new Error("You are not logged in. Please login again.");
     }
 
-  };
+    const response = await fetch(
+      "https://weddingbloomai-production.up.railway.app/api/vendors",
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
+    const data = await response.json();
+
+    console.log("Vendors API Response:", data);
+
+    if (!response.ok) {
+      throw new Error(
+        data.message || "Failed to fetch vendors."
+      );
+    }
+
+    const vendorList = data.data || [];
+
+    const vendorsWithCategories = await Promise.all(
+      vendorList.map(async (vendor) => {
+        try {
+          const categoryResponse = await fetch(
+            `https://weddingbloomai-production.up.railway.app/api/vendor-categories/${vendor.id}`,
+            {
+              method: "GET",
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+
+          const categoryData = await categoryResponse.json();
+
+          return {
+            ...vendor,
+            categories: categoryData.data || [],
+          };
+        } catch (error) {
+          console.error(
+            `Category fetch error for vendor ${vendor.id}:`,
+            error
+          );
+
+          return {
+            ...vendor,
+            categories: [],
+          };
+        }
+      })
+    );
+
+    console.log(
+      "Final Vendors:",
+      vendorsWithCategories
+    );
+
+    setVendors(vendorsWithCategories);
+
+  } catch (error) {
+    console.error("Fetch Vendors Error:", error);
+
+    Swal.fire({
+      icon: "error",
+      title: "Unable to load vendors",
+      text: error.message,
+      confirmButtonColor: "#b76e79",
+    });
+
+  } finally {
+    setLoading(false);
+  }
+};
 
   // =========================
   // INITIAL LOAD
